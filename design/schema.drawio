@@ -1,0 +1,91 @@
+<mxfile host="app.diagrams.net" agent="Claude">
+  <diagram name="CampusEats ERD" id="campuseats-erd">
+    <mxGraphModel dx="1134" dy="785" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="a_hdr" parent="1" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#6c8ebf;strokeColor=#1a3a63;fontColor=#ffffff;fontStyle=1;fontSize=13;shadow=1;" value="ACCOUNTS SERVICE" vertex="1">
+          <mxGeometry height="40" width="260" x="20" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="c_hdr" parent="1" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#82b366;strokeColor=#25401c;fontColor=#ffffff;fontStyle=1;fontSize=13;shadow=1;" value="CATALOGUE SERVICE" vertex="1">
+          <mxGeometry height="40" width="260" x="310" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="o_hdr" parent="1" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#d79b00;strokeColor=#7a4900;fontColor=#ffffff;fontStyle=1;fontSize=13;shadow=1;" value="ORDERS SERVICE" vertex="1">
+          <mxGeometry height="40" width="300" x="600" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="p_hdr" parent="1" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#b85450;strokeColor=#6b1a17;fontColor=#ffffff;fontStyle=1;fontSize=13;shadow=1;" value="PAYMENTS SERVICE" vertex="1">
+          <mxGeometry height="40" width="270" x="930" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d_hdr" parent="1" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#9673a6;strokeColor=#40274a;fontColor=#ffffff;fontStyle=1;fontSize=13;shadow=1;" value="DELIVERY SERVICE" vertex="1">
+          <mxGeometry height="40" width="300" x="20" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="n_hdr" parent="1" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#d6b656;strokeColor=#6b5300;fontColor=#ffffff;fontStyle=1;fontSize=13;shadow=1;" value="NOTIFICATIONS SERVICE" vertex="1">
+          <mxGeometry height="40" width="300" x="333" y="439" as="geometry" />
+        </mxCell>
+        <mxCell id="users" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#1a3a63;shadow=1;spacing=4;" value="&lt;b&gt;users&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&lt;b&gt;PK&lt;/b&gt; user_id&lt;br&gt;name&lt;br&gt;email" vertex="1">
+          <mxGeometry height="85" width="260" x="20" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="addresses" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#1a3a63;shadow=1;spacing=4;" value="&lt;b&gt;addresses&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&lt;b&gt;PK&lt;/b&gt; address_id&lt;br&gt;&lt;i&gt;FK&lt;/i&gt; user_id&lt;br&gt;address_text" vertex="1">
+          <mxGeometry height="85" width="260" x="20" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="restaurants" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#25401c;shadow=1;spacing=4;" value="&lt;b&gt;restaurants&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&lt;b&gt;PK&lt;/b&gt; restaurant_id&lt;br&gt;name" vertex="1">
+          <mxGeometry height="85" width="260" x="310" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="menus" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#25401c;shadow=1;spacing=4;" value="&lt;b&gt;menus&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&lt;b&gt;PK&lt;/b&gt; menu_id&lt;br&gt;&lt;i&gt;FK&lt;/i&gt; restaurant_id&lt;br&gt;name" vertex="1">
+          <mxGeometry height="85" width="260" x="310" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="menu_items" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#25401c;shadow=1;spacing=4;" value="&lt;b&gt;menu_items&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&lt;b&gt;PK&lt;/b&gt; item_id&lt;br&gt;&lt;i&gt;FK&lt;/i&gt; menu_id&lt;br&gt;name&lt;br&gt;price" vertex="1">
+          <mxGeometry height="85" width="260" x="310" y="338" as="geometry" />
+        </mxCell>
+        <mxCell id="carts" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#7a4900;shadow=1;spacing=4;" value="&lt;b&gt;carts&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&lt;b&gt;PK&lt;/b&gt; cart_id&lt;br&gt;user_id&lt;br&gt;status" vertex="1">
+          <mxGeometry height="85" width="300" x="600" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="cart_items" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#7a4900;shadow=1;spacing=4;" value="&lt;b&gt;cart_items&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&lt;b&gt;PK&lt;/b&gt; cart_item_id&lt;br&gt;&lt;i&gt;FK&lt;/i&gt; cart_id&lt;br&gt;item_id&lt;br&gt;quantity" vertex="1">
+          <mxGeometry height="85" width="300" x="600" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="orders" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#7a4900;shadow=1;spacing=4;" value="&lt;b&gt;orders&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&lt;b&gt;PK&lt;/b&gt; order_id&lt;br&gt;user_id&lt;br&gt;address_id&lt;br&gt;status&lt;br&gt;total" vertex="1">
+          <mxGeometry height="95" width="300" x="600" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="order_items" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#7a4900;shadow=1;spacing=4;" value="&lt;b&gt;order_items&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&lt;b&gt;PK&lt;/b&gt; order_item_id&lt;br&gt;&lt;i&gt;FK&lt;/i&gt; order_id&lt;br&gt;item_id&lt;br&gt;quantity&lt;br&gt;price" vertex="1">
+          <mxGeometry height="95" width="300" x="600" y="485" as="geometry" />
+        </mxCell>
+        <mxCell id="transactions" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#6b1a17;shadow=1;spacing=4;" value="&lt;b&gt;transactions&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&lt;b&gt;PK&lt;/b&gt; transaction_id&lt;br&gt;order_id&lt;br&gt;amount&lt;br&gt;status" vertex="1">
+          <mxGeometry height="85" width="270" x="930" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="refunds" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#6b1a17;shadow=1;spacing=4;" value="&lt;b&gt;refunds&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&lt;b&gt;PK&lt;/b&gt; refund_id&lt;br&gt;&lt;i&gt;FK&lt;/i&gt; transaction_id&lt;br&gt;amount&lt;br&gt;status" vertex="1">
+          <mxGeometry height="85" width="270" x="930" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="riders" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#40274a;shadow=1;spacing=4;" value="&lt;b&gt;riders&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&lt;b&gt;PK&lt;/b&gt; rider_id&lt;br&gt;name" vertex="1">
+          <mxGeometry height="85" width="300" x="20" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="delivery" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#40274a;shadow=1;spacing=4;" value="&lt;b&gt;delivery_assignments&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&lt;b&gt;PK&lt;/b&gt; assignment_id&lt;br&gt;order_id&lt;br&gt;&lt;i&gt;FK&lt;/i&gt; rider_id&lt;br&gt;status" vertex="1">
+          <mxGeometry height="95" width="300" x="20" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="notifications" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#6b5300;shadow=1;spacing=4;" value="&lt;b&gt;notification_log&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&lt;b&gt;PK&lt;/b&gt; notification_id&lt;br&gt;user_id&lt;br&gt;message&lt;br&gt;status" vertex="1">
+          <mxGeometry height="95" width="300" x="360" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="users" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERzeroToMany;startArrow=ERone;strokeColor=#6c8ebf;strokeWidth=2;fontColor=#1a3a63;fontSize=11;fontStyle=1;labelBackgroundColor=#ffffff;" target="addresses" value="has">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="restaurants" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERzeroToMany;startArrow=ERone;strokeColor=#82b366;strokeWidth=2;fontColor=#25401c;fontSize=11;fontStyle=1;labelBackgroundColor=#ffffff;" target="menus" value="has">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="menus" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERzeroToMany;startArrow=ERone;strokeColor=#82b366;strokeWidth=2;fontColor=#25401c;fontSize=11;fontStyle=1;labelBackgroundColor=#ffffff;" target="menu_items" value="contains">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="carts" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERzeroToMany;startArrow=ERone;strokeColor=#d79b00;strokeWidth=2;fontColor=#7a4900;fontSize=11;fontStyle=1;labelBackgroundColor=#ffffff;" target="cart_items" value="contains">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="orders" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERzeroToMany;startArrow=ERone;strokeColor=#d79b00;strokeWidth=2;fontColor=#7a4900;fontSize=11;fontStyle=1;labelBackgroundColor=#ffffff;" target="order_items" value="contains">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="transactions" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERzeroToMany;startArrow=ERone;strokeColor=#b85450;strokeWidth=2;fontColor=#6b1a17;fontSize=11;fontStyle=1;labelBackgroundColor=#ffffff;" target="refunds" value="has">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="riders" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERzeroToMany;startArrow=ERone;strokeColor=#9673a6;strokeWidth=2;fontColor=#40274a;fontSize=11;fontStyle=1;labelBackgroundColor=#ffffff;" target="delivery" value="assigned">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
