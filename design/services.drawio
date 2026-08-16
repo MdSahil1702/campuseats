@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-08-16T17:29:00.000Z" agent="Claude" version="24.7.17">
+  <diagram name="Services" id="campuseats-services">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="accounts" value="&lt;b&gt;ACCOUNTS&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;Owner: Jeeshan Adil&lt;/font&gt;&lt;br&gt;&lt;br&gt;Owns:&lt;br&gt;• users&lt;br&gt;• addresses" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;gradientColor=#ffffff;shadow=1;fontSize=13;fontColor=#1a3a63;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="220" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="catalogue" value="&lt;b&gt;CATALOGUE&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;Owner: Ritik Kumar Sinha&lt;/font&gt;&lt;br&gt;&lt;br&gt;Owns:&lt;br&gt;• restaurants&lt;br&gt;• menus&lt;br&gt;• prices" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#ffffff;shadow=1;fontSize=13;fontColor=#25401c;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="360" y="80" width="220" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="orders" value="&lt;b&gt;ORDERS&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;Owner: Mohammad Sahil Siddiquie&lt;/font&gt;&lt;br&gt;&lt;br&gt;Owns:&lt;br&gt;• carts&lt;br&gt;• orders&lt;br&gt;• order status" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#ffe6cc;strokeColor=#d79b00;gradientColor=#ffffff;shadow=1;fontSize=13;fontColor=#7a4900;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="200" y="280" width="240" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="payments" value="&lt;b&gt;PAYMENTS&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;Owner: Mohammad Sahil Siddiquie&lt;/font&gt;&lt;br&gt;&lt;br&gt;Owns:&lt;br&gt;• transactions&lt;br&gt;• refunds" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#f8cecc;strokeColor=#b85450;gradientColor=#ffffff;shadow=1;fontSize=13;fontColor=#6b1a17;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="20" y="500" width="220" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="delivery" value="&lt;b&gt;DELIVERY&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;Owner: Jeeshan Adil&lt;/font&gt;&lt;br&gt;&lt;br&gt;Owns:&lt;br&gt;• riders&lt;br&gt;• assignments" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#e1d5e7;strokeColor=#9673a6;gradientColor=#ffffff;shadow=1;fontSize=13;fontColor=#40274a;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="260" y="500" width="220" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="notifications" value="&lt;b&gt;NOTIFICATIONS&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;Owner: Kruti Kansagara&lt;/font&gt;&lt;br&gt;&lt;br&gt;Owns:&lt;br&gt;• message log" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#fff2cc;strokeColor=#d6b656;gradientColor=#ffffff;shadow=1;fontSize=13;fontColor=#6b5300;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="520" y="500" width="220" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" value="checkItem" edge="1" parent="1" source="orders" target="catalogue" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;strokeColor=#82b366;strokeWidth=2;fontSize=11;fontColor=#25401c;labelBackgroundColor=#ffffff;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e2" value="charge" edge="1" parent="1" source="orders" target="payments" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;strokeColor=#b85450;strokeWidth=2;fontSize=11;fontColor=#6b1a17;labelBackgroundColor=#ffffff;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e3" value="assignRider" edge="1" parent="1" source="orders" target="delivery" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;strokeColor=#9673a6;strokeWidth=2;fontSize=11;fontColor=#40274a;labelBackgroundColor=#ffffff;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e4" value="send" edge="1" parent="1" source="orders" target="notifications" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;strokeColor=#d6b656;strokeWidth=2;fontSize=11;fontColor=#6b5300;labelBackgroundColor=#ffffff;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
