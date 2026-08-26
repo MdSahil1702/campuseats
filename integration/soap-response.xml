@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                   xmlns:pf="http://payflex.example.com/payments/v1">
+  <soapenv:Body>
+    <pf:ChargeResponse>
+      <pf:transactionId>TXN-77321A9F</pf:transactionId>
+      <pf:status>APPROVED</pf:status>
+      <pf:authCode>AUTH-55210</pf:authCode>
+      <pf:amount>458.00</pf:amount>
+      <pf:currency>INR</pf:currency>
+    </pf:ChargeResponse>
+  </soapenv:Body>
+</soapenv:Envelope>
