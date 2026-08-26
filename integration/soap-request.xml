@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                   xmlns:pf="http://payflex.example.com/payments/v1">
+  <soapenv:Header>
+    <pf:Credentials>
+      <pf:apiKey>sk_live_51NcampuseATS9f2</pf:apiKey>
+      <pf:merchantId>CAMPUSEATS-MERCH-0042</pf:merchantId>
+      <pf:timestamp>2026-08-26T10:15:30Z</pf:timestamp>
+      <pf:nonce>a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d</pf:nonce>
+    </pf:Credentials>
+  </soapenv:Header>
+  <soapenv:Body>
+    <pf:ChargeRequest>
+      <pf:merchantId>CAMPUSEATS-MERCH-0042</pf:merchantId>
+      <pf:orderId>ORD-20260826-00931</pf:orderId>
+      <pf:amount>458.00</pf:amount>
+      <pf:currency>INR</pf:currency>
+      <pf:cardToken>tok_9f8e7d6c5b4a</pf:cardToken>
+    </pf:ChargeRequest>
+  </soapenv:Body>
+</soapenv:Envelope>
