@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                   xmlns:pf="http://payflex.example.com/payments/v1">
+  <soapenv:Body>
+    <soapenv:Fault>
+      <faultcode>soapenv:Server</faultcode>
+      <faultstring>Payment authorization failed</faultstring>
+      <detail>
+        <pf:ChargeFaultDetail>
+          <pf:faultCode>card_declined</pf:faultCode>
+          <pf:declineReason>Insufficient funds on the linked card</pf:declineReason>
+          <pf:orderId>ORD-20260826-00931</pf:orderId>
+        </pf:ChargeFaultDetail>
+      </detail>
+    </soapenv:Fault>
+  </soapenv:Body>
+</soapenv:Envelope>
