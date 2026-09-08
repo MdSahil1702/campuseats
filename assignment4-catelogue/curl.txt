@@ -1,0 +1,57 @@
+# Start the service first:
+# export PAYMENTS_SERVICE_URL=http://localhost:5001/payments
+# python app.py
+
+# Successful create
+$ curl -i -X POST http://localhost:5000/orders \
+  -H 'Content-Type: application/json' \
+  -H 'Idempotency-Key: demo-order-001' \
+  -d '{"customer_name":"Ritik","customer_email":"ritik@example.com","items":[{"name":"Veg Thali","quantity":1}],"total_amount":349,"currency":"INR"}'
+HTTP/1.1 201 CREATED
+Content-Type: application/json
+Location: /orders/CE-ORD-AB12CD34
+
+{"order_id":"CE-ORD-AB12CD34","customer_name":"Ritik","items":[{"name":"Veg Thali","quantity":1}],"total_amount":349.0,"currency":"INR","status":"CONFIRMED","created_at":"2026-09-08T15:40:00+00:00"}
+
+# Same request repeated with the same idempotency key: original result
+$ curl -i -X POST http://localhost:5000/orders \
+  -H 'Content-Type: application/json' \
+  -H 'Idempotency-Key: demo-order-001' \
+  -d '{"customer_name":"Ritik","customer_email":"ritik@example.com","items":[{"name":"Veg Thali","quantity":1}],"total_amount":349,"currency":"INR"}'
+HTTP/1.1 201 CREATED
+Content-Type: application/json
+Location: /orders/CE-ORD-AB12CD34
+
+{"order_id":"CE-ORD-AB12CD34","customer_name":"Ritik","items":[{"name":"Veg Thali","quantity":1}],"total_amount":349.0,"currency":"INR","status":"CONFIRMED","created_at":"2026-09-08T15:40:00+00:00"}
+
+# Malformed body -> 400
+$ curl -i -X POST http://localhost:5000/orders \
+  -H 'Content-Type: application/json' \
+  -H 'Idempotency-Key: demo-order-002' \
+  -d '{"customer_name":"Ritik"}'
+HTTP/1.1 400 BAD REQUEST
+Content-Type: application/json
+
+{"type":"about:blank","title":"Malformed request","status":400,"detail":"Missing required fields: currency, customer_email, items, total_amount."}
+
+# Missing resource -> 404
+$ curl -i http://localhost:5000/orders/CE-ORD-NOTFOUND
+HTTP/1.1 404 NOT FOUND
+Content-Type: application/json
+
+{"type":"https://campuseats.example/errors/not-found","title":"Order not found","status":404,"detail":"No order exists with id 'CE-ORD-NOTFOUND'."}
+
+# State conflict -> 409
+# First cancel an existing confirmed order:
+$ curl -i -X POST http://localhost:5000/orders/CE-ORD-AB12CD34/cancellation
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{"order_id":"CE-ORD-AB12CD34","status":"CANCELLED", ...}
+
+# Repeat cancellation:
+$ curl -i -X POST http://localhost:5000/orders/CE-ORD-AB12CD34/cancellation
+HTTP/1.1 409 CONFLICT
+Content-Type: application/json
+
+{"type":"https://campuseats.example/errors/state-conflict","title":"State conflict","status":409,"detail":"The order has already been cancelled."}
