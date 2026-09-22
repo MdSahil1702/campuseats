@@ -1,7 +1,6 @@
 # CS543 — Assignment 5 NOTES
 
 ## Team
-- **Team ID:** T-XX (⚠️ apni Team ID daalo)
 - **Member 1:** Sahil — Roll No. 20252651055
 - **Member 2:** Ritik — Roll No. 20252651043
 - **Member 3:** Jeeshan — Roll No. 20252651026
