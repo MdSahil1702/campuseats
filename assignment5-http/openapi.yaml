@@ -1,0 +1,87 @@
+openapi: 3.0.3
+info:
+  title: Campus Eats API - Assignment 5
+  version: 5.0.0
+
+servers:
+  - url: https://campuseats.example.com
+
+security:
+  - bearerAuth: []
+
+paths:
+  /orders:
+    get:
+      summary: List orders (safe, idempotent)
+      responses:
+        "200": { description: OK }
+    post:
+      summary: Create order
+      responses:
+        "201": { description: Created }
+        "400": { description: Bad Request }
+        "422": { description: Unprocessable Entity }
+    options:
+      summary: Preflight
+      responses:
+        "204": { description: No Content }
+
+  /orders/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema: { type: integer }
+    get:
+      summary: Read order (safe, idempotent)
+      responses:
+        "200": { description: OK }
+        "304": { description: Not Modified }
+        "401": { description: Unauthorized }
+        "404": { description: Not Found }
+    put:
+      summary: Replace order
+      responses:
+        "200": { description: OK }
+        "412": { description: Precondition Failed }
+    patch:
+      summary: Modify order
+      responses:
+        "200": { description: OK }
+        "412": { description: Precondition Failed }
+    delete:
+      summary: Delete order
+      responses:
+        "204": { description: No Content }
+        "404": { description: Not Found }
+
+  /orders/{id}/cancellation:
+    post:
+      summary: Cancel order
+      responses:
+        "200": { description: OK }
+        "409": { description: Conflict }
+
+  /orders/{id}/checkout:
+    post:
+      summary: Checkout
+      responses:
+        "200": { description: OK }
+
+  /orders/{id}/receipt:
+    get:
+      summary: Redirect
+      responses:
+        "303": { description: See Other }
+
+  /restaurants/{id}/availability:
+    post:
+      summary: Set availability
+      responses:
+        "200": { description: OK }
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
