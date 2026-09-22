@@ -1,6 +1,6 @@
 # Campus Eats — Assignment 5 (HTTP Methods & Headers)
 
-Builds on `../assignment4-catelogue` (untouched).
+
 
 ## Run
 ```bash
