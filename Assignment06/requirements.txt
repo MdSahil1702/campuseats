@@ -1,0 +1,7 @@
+
+---
+
+#  `Assignment06/requirements.txt`
+
+```txt
+pytest>=8.0,<10.0
