@@ -1,0 +1,27 @@
+"""A dish on a CampusEats restaurant menu (Catalogue service)."""
+type Dish {
+  id: ID!
+  name: String!
+  price: Float!
+  available: Boolean!
+  description: String
+}
+
+input AddDishInput {
+  name: String!
+  price: Float!
+  available: Boolean
+  description: String
+}
+
+type Query {
+  "List all dishes; pass availableOnly: true to hide unavailable ones."
+  dishes(availableOnly: Boolean): [Dish!]!
+  "Fetch one dish by id (null if it does not exist)."
+  dish(id: ID!): Dish
+}
+
+type Mutation {
+  addDish(input: AddDishInput!): Dish!
+  setDishAvailability(id: ID!, available: Boolean!): Dish
+}
