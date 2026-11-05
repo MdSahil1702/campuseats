@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CampusEats Menu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>CampusEats Menu</h1>
+    <p>Today's catalogue, read live from <code>GET /items</code></p>
+  </header>
+
+  <main class="layout">
+    <section class="menu" aria-labelledby="menu-title">
+      <h2 id="menu-title">On the menu <span id="count" class="count"></span></h2>
+      <ul id="item-list" class="item-list"></ul>
+      <p id="list-error" class="msg error" hidden></p>
+    </section>
+
+    <section class="add" aria-labelledby="add-title">
+      <h2 id="add-title">Add a dish</h2>
+      <form id="item-form" novalidate>
+        <label for="name">Dish name</label>
+        <input id="name" name="name" type="text" placeholder="e.g. Samosa Chaat" autocomplete="off">
+
+        <label for="price">Price (INR)</label>
+        <input id="price" name="price" type="number" min="0" step="1" placeholder="e.g. 50">
+
+        <label class="check">
+          <input id="available" name="available" type="checkbox" checked>
+          Available today
+        </label>
+
+        <button type="submit">Add to menu</button>
+        <p id="form-msg" class="msg" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    const list = document.getElementById('item-list');
+    const count = document.getElementById('count');
+    const listError = document.getElementById('list-error');
+    const form = document.getElementById('item-form');
+    const formMsg = document.getElementById('form-msg');
+
+    // GET /items -> render the list
+    async function loadItems() {
+      try {
+        const res = await fetch('/items');
+        if (!res.ok) throw new Error('Server replied ' + res.status);
+        const items = await res.json();
+        list.innerHTML = '';
+        items.forEach((item) => {
+          const li = document.createElement('li');
+          li.className = 'item' + (item.available ? '' : ' sold-out');
+
+          const info = document.createElement('div');
+          const name = document.createElement('span');
+          name.className = 'name';
+          name.textContent = item.name;
+          const status = document.createElement('span');
+          status.className = 'status';
+          status.textContent = item.available ? 'Available' : 'Sold out';
+          info.append(name, status);
+
+          const price = document.createElement('span');
+          price.className = 'price';
+          price.textContent = '\u20B9' + item.price;
+
+          li.append(info, price);
+          list.appendChild(li);
+        });
+        count.textContent = '(' + items.length + ')';
+        listError.hidden = true;
+      } catch (err) {
+        listError.textContent = 'Could not load the menu: ' + err.message;
+        listError.hidden = false;
+      }
+    }
+
+    // POST /items -> add a record, then refresh the list
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      formMsg.className = 'msg';
+      formMsg.textContent = '';
+
+      const body = {
+        name: document.getElementById('name').value,
+        price: document.getElementById('price').value,
+        available: document.getElementById('available').checked,
+      };
+
+      try {
+        const res = await fetch('/items', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+        });
+        const data = await res.json();
+        if (res.status === 201) {
+          formMsg.className = 'msg ok';
+          formMsg.textContent = 'Added "' + data.name + '" (id ' + data.id + ').';
+          form.reset();
+          document.getElementById('available').checked = true;
+          await loadItems();
+        } else {
+          formMsg.className = 'msg error';
+          formMsg.textContent = 'Not added (' + res.status + '): ' + data.error;
+        }
+      } catch (err) {
+        formMsg.className = 'msg error';
+        formMsg.textContent = 'Could not reach the server: ' + err.message;
+      }
+    });
+
+    loadItems();
+  </script>
+</body>
+</html>
